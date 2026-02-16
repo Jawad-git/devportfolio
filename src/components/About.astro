@@ -23,6 +23,36 @@ import { siteConfig } from "../config";
           {siteConfig.aboutMe}
         </p>
 
+        {siteConfig.resumeLink && (
+          <div class="pt-2">
+            <a
+              href={siteConfig.resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 font-medium text-gray-800 border-2 border-gray-300 rounded-lg transition-all duration-200 hover:border-gray-400 hover:bg-gray-50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                <path d="M17 21H7a2 2 0 0 1 -2 -2V5a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                <path d="M12 11v5" />
+                <path d="M9.5 13.5l2.5 -2.5l2.5 2.5" />
+              </svg>
+              View Resume
+            </a>
+          </div>
+        )}
+
         <div class="pt-4">
           <div class="flex flex-wrap gap-3">
             {
