@@ -64,7 +64,7 @@ export const siteConfig = {
     {
       name: "FinShark Finance",
       description:
-        "Personal finance app built with React and TypeScript, featuring transactions, portfolio management, and identity authentication.",
+        "Personal finance app built with .Net Core, React and TypeScript, featuring stock monitoring, portfolio management, comments, and identity authentication.",
       link: "",
       skills: ["React", "TypeScript", ".Net Core", "Tailwind"],
     },
