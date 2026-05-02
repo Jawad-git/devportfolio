@@ -1,0 +1,45 @@
+---
+import { siteConfig } from "../config";
+const hasLearning = siteConfig.currentlyLearning && siteConfig.currentlyLearning.length > 0;
+---
+
+{
+  hasLearning && (
+    <section id="learning" class="p-8 sm:p-12 md:p-16 lg:p-24 section-animate">
+      <div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+              Currently Learning
+            </h2>
+            <div
+              class="w-[75px] h-[5px] mt-2 rounded-full"
+              style={`background-color: ${siteConfig.accentColor}`}
+            />
+            <p class="mt-4 text-gray-500 text-base sm:text-lg">
+              Always a student. Here's what I'm deep-diving into right now.
+            </p>
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="space-y-4">
+              {siteConfig.currentlyLearning.map((item, index) => (
+                <div class="group flex items-start gap-4 bg-white rounded-xl border border-gray-200 p-4 sm:p-5 hover:shadow-md hover:border-gray-300 transition-all duration-300">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-white mt-0.5"
+                    style={`background: linear-gradient(135deg, ${siteConfig.accentColor}, ${siteConfig.accentColor}bb)`}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <p class="text-base sm:text-lg text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors duration-200">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

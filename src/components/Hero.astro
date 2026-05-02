@@ -4,24 +4,28 @@ import { siteConfig } from "../config";
 
 <div
   id="hero"
-  class="relative isolate overflow-hidden bg-white py-24 md:h-screen"
+  class="relative isolate overflow-hidden bg-white py-24 md:min-h-screen md:flex md:items-center"
   style={`--accent-color: ${siteConfig.accentColor}`}
 >
-  <!-- Gradient overlay -->
   <div
     class="absolute inset-0 -z-10"
-    style={`background: radial-gradient(ellipse 800px 1200px at 0% 0%, ${siteConfig.accentColor}40 0%, ${siteConfig.accentColor}25 20%, ${siteConfig.accentColor}10 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`}
+    style={`background: radial-gradient(ellipse 1200px 800px at 10% 20%, ${siteConfig.accentColor}30 0%, ${siteConfig.accentColor}15 30%, rgba(255, 255, 255, 0.5) 60%, white 100%)`}
+  >
+  </div>
+  <div
+    class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] opacity-20"
+    style={`background: radial-gradient(circle at center, ${siteConfig.accentColor}40 0%, transparent 70%)`}
   >
   </div>
   <svg
     aria-hidden="true"
-    class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+    class="absolute inset-0 -z-10 size-full stroke-gray-200/50 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
   >
     <defs>
       <pattern
         x="50%"
         y={-1}
-        id="0787a7c5-978c-4f66-83c7-11c213f99cb7"
+        id="grid-pattern"
         width={200}
         height={200}
         patternUnits="userSpaceOnUse"
@@ -122,36 +126,42 @@ import { siteConfig } from "../config";
       fill="url(#programming-symbols)"
       width="100%"
       height="100%"
-      opacity="0.2"></rect>
+      opacity="0.15"></rect>
     <rect
-      fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
+      fill="url(#grid-pattern)"
       width="100%"
       height="100%"
       stroke-width={0}></rect>
   </svg>
-  <div class="h-full mx-auto p-8 sm:p-12 md:p-24 flex items-center">
+  <div class="h-full mx-auto px-8 sm:px-12 md:px-24 w-full max-w-7xl">
     <div>
-      <h2
-        class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 animate-fade-in"
-      >
-        Hello! 👋
-      </h2>
-      <h1
-        class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200"
-      >
-        I'm <span style={{ color: siteConfig.accentColor }}
-          >{siteConfig.name}</span
+      <div class="animate-fade-in">
+        <span
+          class="inline-block px-3 py-1 text-xs sm:text-sm font-semibold rounded-full mb-4 sm:mb-6"
+          style={`background-color: ${siteConfig.accentColor}15; color: ${siteConfig.accentColor}; border: 1px solid ${siteConfig.accentColor}30`}
         >
+          20+ Years of Engineering Excellence
+        </span>
+      </div>
+      <h1
+        class="mt-2 sm:mt-4 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200 leading-[1.1]"
+      >
+        I'm <span style={{ color: siteConfig.accentColor }}>{siteConfig.name}</span>
       </h1>
-      <p
-        class="mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 animate-fade-in animation-delay-400"
+      <h2
+        class="mt-3 sm:mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-gray-600 animate-fade-in animation-delay-300"
       >
         {siteConfig.title}
+      </h2>
+      <p
+        class="mt-4 sm:mt-6 md:mt-8 text-pretty text-sm sm:text-base md:text-lg/8 max-w-2xl text-gray-500 animate-fade-in animation-delay-400"
+      >
+        {siteConfig.tagline}
       </p>
     </div>
   </div>
   <div
-    class="absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-24 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600"
+    class="absolute bottom-0 left-0 right-0 px-8 sm:px-12 md:px-24 py-8 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600"
   >
     {
       siteConfig.social?.email && (
@@ -213,36 +223,6 @@ import { siteConfig } from "../config";
       )
     }
     {
-      siteConfig.social?.twitter && (
-        <a
-          href={siteConfig.social.twitter}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Twitter"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8"
-          >
-            <>
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-            </>
-          </svg>
-        </a>
-      )
-    }
-    {
       siteConfig.social?.github && (
         <a
           href={siteConfig.social.github}
@@ -278,7 +258,7 @@ import { siteConfig } from "../config";
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
@@ -295,11 +275,15 @@ import { siteConfig } from "../config";
     animation-delay: 0.2s;
   }
 
+  .animation-delay-300 {
+    animation-delay: 0.35s;
+  }
+
   .animation-delay-400 {
-    animation-delay: 0.4s;
+    animation-delay: 0.5s;
   }
 
   .animation-delay-600 {
-    animation-delay: 0.6s;
+    animation-delay: 0.7s;
   }
 </style>
