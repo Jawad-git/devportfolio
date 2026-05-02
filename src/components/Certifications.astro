@@ -1,0 +1,60 @@
+---
+import { siteConfig } from "../config";
+const hasCerts = siteConfig.certifications && siteConfig.certifications.length > 0;
+---
+
+{
+  hasCerts && (
+    <section id="certifications" class="p-8 sm:p-12 md:p-16 lg:p-24 section-animate">
+      <div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+              Certifications
+            </h2>
+            <div
+              class="w-[75px] h-[5px] mt-2 rounded-full"
+              style={`background-color: ${siteConfig.accentColor}`}
+            />
+          </div>
+
+          <div class="lg:col-span-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              {siteConfig.certifications.map((cert) => (
+                <div class="group relative bg-white rounded-xl border border-gray-200 p-5 sm:p-6 hover:shadow-lg hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-300">
+                  <div class="flex items-start gap-3">
+                    <div
+                      class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center mt-0.5"
+                      style={`background-color: ${siteConfig.accentColor}15; color: ${siteConfig.accentColor}`}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5" />
+                        <path d="M10 19h-5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-5" />
+                      </svg>
+                    </div>
+                    <div class="min-w-0">
+                      <h3 class="text-base sm:text-lg font-semibold text-gray-900 leading-snug">
+                        {cert.name}
+                      </h3>
+                      <p
+                        class="text-sm mt-1"
+                        style={`color: ${siteConfig.accentColor}`}
+                      >
+                        {cert.issuer}
+                      </p>
+                      <p class="text-xs text-gray-500 mt-1">
+                        {cert.year}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

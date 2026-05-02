@@ -1,9 +1,13 @@
 ---
 import { siteConfig } from "../config";
 
+const currentYear = new Date().getFullYear();
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const hasCertifications = siteConfig.certifications && siteConfig.certifications.length > 0;
+const hasTestimonials = siteConfig.testimonials && siteConfig.testimonials.length > 0;
+const hasLearning = siteConfig.currentlyLearning && siteConfig.currentlyLearning.length > 0;
 ---
 
 <footer class="relative bg-gray-50 border-t border-gray-200">
@@ -98,7 +102,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
       </div>
 
       <div class="hidden md:block flex flex-col md:items-end gap-4">
-        <nav class="flex gap-x-8">
+        <nav class="flex flex-wrap gap-x-6 gap-y-2">
           <a
             href="#about"
             class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
@@ -125,6 +129,36 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             )
           }
           {
+            hasCertifications && (
+              <a
+                href="#certifications"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                Certifications
+              </a>
+            )
+          }
+          {
+            hasTestimonials && (
+              <a
+                href="#testimonials"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                Testimonials
+              </a>
+            )
+          }
+          {
+            hasLearning && (
+              <a
+                href="#learning"
+                class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                Learning
+              </a>
+            )
+          }
+          {
             hasEducation && (
               <a
                 href="#education"
@@ -136,14 +170,12 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           }
         </nav>
         <p class="text-sm text-gray-500">
-          © {new Date().getFullYear()}
-          {siteConfig.name}. All rights reserved.
+          &copy; {currentYear} {siteConfig.name}. All rights reserved.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Decorative pattern -->
   <div class="absolute inset-0 -z-10 overflow-hidden">
     <svg
       aria-hidden="true"
